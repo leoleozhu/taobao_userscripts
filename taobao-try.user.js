@@ -5,7 +5,7 @@
 // @grant       GM_xmlhttpRequest
 // @include	*://try.taobao.com/item.htm?*
 // @require     http://code.jquery.com/jquery-latest.js
-// @version     0.1.0
+// @version     0.1.1
 // ==/UserScript==
 
 // string formatter
@@ -31,7 +31,7 @@ $(function() {
       onload:     function(response){
           var item_content = response.responseText
           var item = $.parseHTML(item_content)
-          var result = $(item).find('li:contains("{0}")'.f(question_prop)).attr('title').trim()
+          var result = $(item).find('#J_AttrUL>li:contains("{0}")'.f(question_prop)).attr('title').trim()
           $('#J_AnswerInput').val(result)
       }
   });
